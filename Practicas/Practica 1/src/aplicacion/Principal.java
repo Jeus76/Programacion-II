@@ -2,7 +2,7 @@ package aplicacion;
 
 import mates.Matematicas;
 import java.util.Scanner;
-
+1
 public class Principal {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
