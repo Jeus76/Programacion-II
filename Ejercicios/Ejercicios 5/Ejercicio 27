@@ -1,0 +1,33 @@
+Ejercicio 27. Explique los siguientes conceptos:
+1.	Prueba de caja blanca:
+La prueba de caja blanca se basa en evaluar la estructura interna y el flujo lógico del código del programa.
+Se basa en el análisis de los caminos de ejecución, estructuras de control y dependencias internas. 
+Se llama caja blanca debido a que se tiene acceso al código fuente y su funcionamiento interno.
+
+2.	Prueba de caja negra.
+La prueba de caja negra evalúa el comportamiento del software sin conocer su código interno. 
+Se enfoca en las entradas y salidas del sistema, verificando si responde correctamente a diferentes escenarios. 
+Se utiliza para validar requisitos funcionales y detectar errores en la interfaz o en la lógica de negocio.
+
+3.	Prueba unitaria.
+La prueba unitaria consiste en pequeños fragmentos de código escritos por el desarrollador para verificar que partes específicas del programa,
+como funciones o métodos, funcionen correctamente. Su objetivo es validar que cada componente individual cumpla con su propósito de manera aislada.
+
+4.	Prueba de integración.
+Las pruebas de integración evalúan si los módulos del sistema funcionan correctamente al combinarse e interactuar entre sí.
+Hay dos formas de aplicarla:
+- Big bang: prueba todo el sistema completo a la vez
+- Incremental: se integran los módulos de manera progresiva, se puede hacer primero probando métodos sencillos y luego clases más complejas o viceversa
+
+5. Prueba de sistema.
+Las pruebas de sistema son un tipo de prueba de software que evalúa el sistema completo para asegurarse de que cumple con los requisitos especificados. 
+Se prueban todos los módulos integrados como un sistema completo.Evalúan tanto los requisitos funcionales (qué hace el sistema) como los no funcionales (rendimiento, seguridad, usabilidad, etc.).
+Tipos de pruebas de sistema:
+-Pruebas de rendimiento: Evalúan la velocidad, estabilidad y uso de recursos del sistema bajo diferentes condiciones.
+-Pruebas de seguridad: Verifican si el sistema protege los datos y resiste ataques o accesos no autorizados.
+-Pruebas de recuperación: Evalúan cómo responde el sistema ante fallos o pérdidas de datos y si puede recuperarse correctamente.
+-Pruebas de resistencia: evalúa cómo se comporta una aplicación cuando opera bajo una carga alta y sostenida durante un período prolongado de tiempo.
+
+6. Prueba de aceptación.
+Las pruebas de aceptación son aquellas realizadas por el cliente o usuarios finales para verificar si el producto satisface sus necesidades 
+y cumple con los requisitos definidos. Su objetivo es validar que el software esté listo para su implementación y uso en un entorno real
