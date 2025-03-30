@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60d9983d-e085-49f1-bb22-c8fc5715ce9c" name="Changes" comment="" />
+    <list default="true" id="60d9983d-e085-49f1-bb22-c8fc5715ce9c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Ejercicio 6/prueba6/src/main/java/com/prograII/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicio 6/prueba6/src/main/java/com/prograII/App.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +46,7 @@
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
@@ -111,8 +114,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
@@ -134,6 +137,7 @@
       <workItem from="1740300706306" duration="1896000" />
       <workItem from="1741336383396" duration="874000" />
       <workItem from="1742149223242" duration="4369000" />
+      <workItem from="1743005784382" duration="24000" />
     </task>
     <servers />
   </component>
