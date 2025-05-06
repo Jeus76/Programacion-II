@@ -1,0 +1,76 @@
+Ejercicios 8. 
+
+Hashing y Colas de prioridades
+
+Jesus Alejandro Hernandez Mendez & Luis Holgado Arranz
+
+##Ejercicio 105. Explique qué es una función hash.
+
+Una función hash es una función que transforma datos de entrada (como un objeto o una cadena de texto) en un valor numérico entero, llamado código hash. Este valor se usa comúnmente para indexar datos rápidamente en estructuras como tablas hash.
+
+##Ejercicio 106. Explique qué función hash utiliza Java para objetos de la
+clase Integer.
+En Java, la clase Integer usa una función hash trivial: simplemente devuelve el valor entero en sí.
+Ejemplo: public int hashCode() {
+    return intValue();
+}
+##Ejercicio 107. Explique qué función hash utiliza Java para objetos de la
+clase String.
+Java implementa la función hash de String con la siguiente fórmula:
+	s[0]*31ⁿ⁻¹ + s[1]*31ⁿ⁻² + ... + s[n-1]
+Donde s[i] es el carácter en la posición i y n es la longitud de la cadena. Esto se traduce en:
+public int hashCode() {
+    int h = 0;
+    for (int i = 0; i < value.length; i++) {
+        h = 31 * h + value[i];
+    }
+    return h;
+}
+
+##Ejercicio 108. Explique cómo puede implementarse un map mediante hashing.
+Un Map puede implementarse con una tabla hash en la que:
+
+	-Cada clave (key) se convierte a un índice mediante una función hash.
+	-Los valores (value) se almacenan en el índice correspondiente.
+	-Si ocurre una colisión (dos claves tienen el mismo índice), se maneja con:
+		-Encadenamiento (chaining): listas enlazadas en cada celda.
+		-Dirección abierta (open addressing): buscar otra celda disponible.
+
+En Java, HashMap funciona así.
+
+##Ejercicio 109. Explique cómo puede implementarse un conjunto mediante
+hashing.
+
+Un Set almacena valores únicos sin claves. Puede implementarse igual que un Map, usando los valores como claves:
+	-Se usa una tabla hash donde cada valor tiene su hash.
+	-Si el valor ya existe (misma posición e igual por equals), no se añade.
+	-Internamente, HashSet usa un HashMap donde el valor del Set es la clave del Map, y el valor asociado es un marcador interno (como un 	objeto constante).
+
+##Ejercicio 110. Explique por qué Java aumenta el tamaño máximo de una
+tabla hash antes de que se llene.
+
+	Java expande la tabla hash (rehashing) cuando alcanza un cierto porcentaje de ocupación, llamado factor de carga (por defecto, 0.75):
+	-Para evitar muchas colisiones, que ralentizan la búsqueda, inserción y eliminación.
+	-Aumentar el tamaño mantiene un buen rendimiento (casi O(1)).
+
+##Ejercicio 111. Explique por qué Java recoloca los elementos de una tabla
+hash cuando ésta aumenta de tamaño.
+
+Cuando la tabla se redimensiona, todos los elementos deben ser rehashados, porque:
+	-La función hashCode() da el mismo valor, pero el índice dentro de la tabla depende de su tamaño (index = hash % capacity).
+	-Al cambiar la capacidad, los índices cambian, por eso es necesario recolocarlos para que estén en la posición correcta.
+
+##Ejercicio 112. Explique por qué es conveniente especificar el tamaño inicial
+de una HashSet o de un HashMap cuando se espera que éste sea grande.
+
+Porque así evitas múltiples redimensiones a medida que crece:
+	-Cada redimensionamiento implica rehash y reubicación de todos los elementos, lo cual es costoso en tiempo y memoria.
+	-Si sabes que vas a almacenar, por ejemplo, 10,000 elementos, establecer un tamaño inicial adecuado mejora el rendimiento.
+
+##Ejercicio 113. ¿Qué consecuencias tiene el no reescribir el método hashCode
+cuando se define un tipo de elemento para un HashSet o HashMap?
+
+	Si no sobreescribes hashCode (y equals) correctamente:
+	-Objetos iguales lógicamente podrían tener hashes diferentes, causando:
+		-Que se almacenen múltiples veces en un Set.
+		-Que no se puedan recuperar correctamente de un Map.

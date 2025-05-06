@@ -1,0 +1,100 @@
+Ejercicio 10.
+Ejercicios de 97-104:
+
+97. Explique qué es un árbol rojo-negro y qué propiedades debe
+satisfacer
+	-Un árbol rojo-negro es un tipo de árbol binario de búsqueda autobalanceado, el cual garantiza que las operaciones de inserción, eliminación y búsqueda se realicen en un tiempo logarítmico.
+Cada nodo del árbol tiene siempre un color, negro o rojo. Con estos colores se deben mantener las siguientes propiedades:
+		
+		o. La raíz siempre es negra.
+
+		o. Todas las hojas (nodos nulos o null) se consideran negras.
+
+		o. Si un nodo es rojo, sus hijos deben ser negros.
+			→ Es decir, no puede haber dos nodos rojos seguidos (no hay "doble rojo").
+
+		o. Cualquier camino desde un nodo hasta una hoja descendente debe contener el mismo número de nodos negros.
+			→ Esto se llama la propiedad del "balance negro".
+
+98. Explique mediante ejemplos cómo se realiza la inserción de un elemento en un árbol rojo-negro.
+Para la inserción de un elemento en un árbol rojo-negro tendremos en cuenta los siguientes aspectos:
+
+	1. Todos los nodos nuevos serán agregados por defecto de color rojo
+	2. Si el padre de ese nodo es negro, no hay problema alguno.
+	3. Si el padre es rojo, se estaría incumpliendo la regla de dos rojos seguidos. Lo cual nos lleva a las siguientes opciones a llevar.
+		- Si el "tío" (el nodo izquierdo) es rojo, se cambian ambos nodos al negro. 
+		- Si el "tío" es negro, rotamos y recoloreamos.
+
+Ejemplo:
+tenemos el siguiente árbol:
+   10(B)
+   /
+  5(R)
+queremos insertar el número 1, el cual 1<10 y 1<5, entonces será el nodo hijo izquierdo del 5, pero como es un número nuevo se agrega como rojo.
+
+   10(B)
+   /
+  5(R)
+  /
+ 1(R)
+Aquí incumplimos la propiedad de los 2 rojos seguidos, así que buscamos al nodo tío. Como no existe (null), se considera negro.
+Hacemos rotación derecha sobre 10 y recoloreamos:
+     5(B)
+    /   \
+  1(R) 10(R)		
+
+99. Explique cómo se realiza el borrado de un nudo rojo en árbol rojo-negro.
+	Cuando el nodo que queremos eliminar es rojo y no tenga hijos, simplemente lo quitamos como en un árbol binario de búsqueda normal, sin necesidad de reequilibrar el árbol. Esto se debe a que los nodos rojos no afectan a la cantidad de nodos negros que se deba cumplir para el "balance negro". 
+
+
+100.  Explique qué es un set y cómo puede implementarse mediante un árbol binario.
+
+	Un set (o conjunto) es una estructura de datos que almacena elementos únicos, es decir, no permite duplicados.
+
+		Características principales de un set:
+
+		-No hay elementos repetidos.
+
+		-El orden de los elementos no importa.
+
+
+Para implementar un set usando un árbol binario, usualmente usamos un árbol binario de búsqueda.
+
+Operaciones:
+1. Insertar un elemento:
+
+	Si el elemento ya existe, no se inserta (porque los sets no permiten duplicados).
+
+	Si es menor que el nodo actual, baja a la izquierda; si es mayor, baja a la derecha.
+
+2. Buscar un elemento:
+
+	Se compara el valor buscado con el nodo actual y se baja hacia la izquierda o derecha hasta encontrarlo o llegar a un nodo nulo.
+
+3. Eliminar un elemento:
+
+	Similar a eliminar en un BST normal, asegurando que la propiedad de orden se mantenga.
+
+
+101. Explique qué es un map y cómo puede implementarse mediante un árbol binario.
+	Un Map  es una estructura de datos que asocia una clave con un valor.
+
+		- Cada clave es única.
+
+		-A cada clave le corresponde un valor.
+
+Para la implementación mediante un árbol binario, en vez de usar un arreglo o una tabla hash, podemos usar un Árbol Binario de Búsqueda (BST) para almacenar los pares clave-valor.
+
+En este caso:
+
+	-Cada nodo del árbol contiene una clave y un valor.
+
+	-El árbol mantiene el orden de las claves (normalmente por comparación: key1.compareTo(key2)).
+
+	-Así, podemos buscar, insertar y eliminar claves de manera eficiente.
+
+103. Explique cómo implementaría un árbol en que cada nudo puede tener más de dos hijos.
+
+La clave estaría en el diseño de la clase Nodo:
+
+Cada nodo tendrá un valor y en vez de solo izquierda y derecha, tendría una lista de hijos. Se usaría una lista gracias a que es una forma de almacenamiento de datos flexible, lo cual en esta situación la cual no sabemos la cantidad de hijos que abran por nodo, nos sirve bastante.
